@@ -2,26 +2,23 @@
 
 Primeiro projeto da disciplina de algoritmos
 
+
 # Integrantes
 Lucas Belo - @lucasbelo2606
 Leonarfo Fernandes - @leofes
 Luís Camillo - @Luguicamillo
 
-# Problemas Corrigidos
 
+# Problemas Corrigidos
+- Juntar 
+    - remover tarefa
+    - consultar tarefa
 
 
 # Novas funções implementadas
 - Ler arquivo 
 
 - Gravar arquivo 
-
-- Juntar 
-    - remover tarefa
-    - consultar tarefa
-
-
-
 
 
 # Descrição de execução
@@ -30,7 +27,7 @@ O programa irá criar, remover, consultar e mostrar tarefas criadas pelo usuári
 Através de um menu, o usuário podera escolher qual opção deseja representada por números.
 Além disso, grava lê e grava os arquivos do programa. 
 
------------------------------------------------------------
+--------------------------------------------------------------
 
 *criar_tarefa: Função utilizada para a criação de tarefas a partir das informações que o usuário fornecer. 
 
@@ -45,10 +42,3 @@ void consultar_tarefa: Função é utilizada para consultar uma tarefa específi
 void gravar_arquivo: Função que salva todos os dados adicionados pelo usuário ao usar as demais funções disponíveis. 
 
 void ler_arquivo: Lê o arquivo criado pela função *gravar_arquivos*
-
-
-
-
-
-
-
