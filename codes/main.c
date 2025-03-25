@@ -2,24 +2,30 @@
 #include <stdlib.h>
 #include "funcoes.h"
 
-int main(){
+int main() {
     Lista *lista = malloc(sizeof(Lista));
+    lista->qtde = 0;
+
     int opcao;
-    
-    do{
+    do {
         opcao = menu();
 
-        if(opcao == 1){
+        if (opcao == 1) {
             Tarefa *nova = cria_tarefa();
             inserir_tarefa(lista, nova);
-        } else if(opcao == 2){
+        } else if (opcao == 2) {
             remover_tarefa(lista);
-        }else if(opcao == 3){
+        } else if (opcao == 3) {
             consultar_tarefa(lista);
-        } else if(opcao == 4){
+        } else if (opcao == 4) {
             mostra_tarefas(lista);
+        } else if (opcao == 5) {
+            ler_arquivo(lista);
+        } else if (opcao == 6) {
+            gravar_arquivo(lista);
         }
-    }while (opcao != 7);
-        
-    
+
+    } while (opcao != 7);
+
+    return 0;
 }

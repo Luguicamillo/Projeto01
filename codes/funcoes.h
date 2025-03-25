@@ -22,3 +22,7 @@ int menu();
 void remover_tarefa(Lista *);
 
 void consultar_tarefa(Lista *);
+
+void gravar_arquivo(Lista *);
+
+void ler_arquivo(Lista *);

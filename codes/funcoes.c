@@ -108,5 +108,38 @@ void consultar_tarefa(Lista *lista){
 
 }
 
+void gravar_arquivo(Lista *lista) {
+    FILE *arquivo = fopen("tarefas.txt", "w");
+    if (arquivo == NULL) {
+        printf("Erro ao abrir o arquivo para gravação.\n");
+        return;
+    }
 
-//teste
+    for (int i = 0; i < lista->qtde; i++) {
+        fprintf(arquivo, "%s\n", lista->vetor[i]->nome);
+        fprintf(arquivo, "%d\n", lista->vetor[i]->prioridade);
+        fprintf(arquivo, "%d\n", lista->vetor[i]->duracao);
+    }
+
+    fclose(arquivo);
+    printf("Tarefas gravadas com sucesso no arquivo tarefas.txt.\n");
+}
+
+void ler_arquivo(Lista *lista) {
+    FILE *arquivo = fopen("tarefas.txt", "r");
+    if (arquivo == NULL) {
+        printf("Erro ao abrir o arquivo para leitura.\n");
+        return;
+    }
+
+    while (!feof(arquivo)) {
+        Tarefa *tarefa = malloc(sizeof(Tarefa));
+        if (fscanf(arquivo, "%19s", tarefa->nome) != 1) break;
+        fscanf(arquivo, "%d", &tarefa->prioridade);
+        fscanf(arquivo, "%d", &tarefa->duracao);
+        inserir_tarefa(lista, tarefa);
+    }
+
+    fclose(arquivo);
+    printf("Tarefas lidas do arquivo tarefas.txt.\n");
+}
