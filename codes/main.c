@@ -4,43 +4,31 @@
 
 int main() {
     Lista *lista = malloc(sizeof(Lista));
-    if (!lista) {
-        printf("Erro ao alocar memória para a lista.\n");
-        return 1;
-    }
     lista->qtde = 0;
 
     int opcao;
     do {
         opcao = menu();
 
-        switch (opcao) {
-            case 1:
-                inserir_tarefa(lista, cria_tarefa());
-                break;
-            case 2:
-                remover_tarefa(lista);
-                break;
-            case 3:
-                consultar_tarefa(lista);
-                break;
-            case 4:
-                mostra_tarefas(lista);
-                break;
-            case 5:
-                ler_arquivo(lista);
-                break;
-            case 6:
-                gravar_arquivo(lista);
-                break;
-            case 7:
-                printf("Saindo...\n");
-                break;
-            default:
-                printf("Opção inválida.\n");
+        if (opcao == 1) {
+            Tarefa *nova = cria_tarefa();
+            inserir_tarefa(lista, nova);
+        } else if (opcao == 2) {
+            gerenciar_tarefa(lista);  //Nova função que eu botei 
+        } else if (opcao == 3) {
+            mostra_tarefas(lista);
+        } else if (opcao == 4) {
+            ler_arquivo(lista);
+        } else if (opcao == 5) {
+            gravar_arquivo(lista);
         }
-    } while (opcao != 7);
 
-    liberar_lista(lista);
+    } while (opcao != 6);
+
+    for (int i = 0; i < lista->qtde; i++) {
+        free(lista->vetor[i]);
+    }
+    free(lista);  
+
     return 0;
 }

@@ -1,3 +1,6 @@
+nadar
+2
+20
 Lavar
 5
 20
@@ -7,3 +10,6 @@ correr
 Estudar
 1
 7
+ler
+2
+2
